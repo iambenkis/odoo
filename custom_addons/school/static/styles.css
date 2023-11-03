@@ -1,0 +1,16 @@
+.form_title {
+    font-size: 20px;
+    font-weight: 600; 
+    margin: 2rem 0;
+}
+
+.field_body {
+    margin: 0 10rem ;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}

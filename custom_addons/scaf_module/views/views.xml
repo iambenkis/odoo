@@ -1,0 +1,25 @@
+<odoo>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="scaf_module_action">
+      <field name="name">scaf_module window</field>
+      <field name="res_model">scaf_module</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="scaf_module.list">
+      <field name="name">scaf_module list</field>
+      <field name="model">scaf_module</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+     
+    <menuitem id="scaf_module_menu_action" action="scaf_module_action"/>  
+</odoo>

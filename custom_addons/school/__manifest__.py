@@ -7,11 +7,21 @@
     'description': """Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     """,
     # data files always loaded at installation
+    'installable': True,
+    'application': True,
+    "sequence": -100,
     'data': [
-        'views/mymodule_view.xml',
+        'views/school_view.xml',
+        'views/department_view.xml',
+        'security/school_security.xml',
+        'security/ir.model.access.csv',
+        'views/menu.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'school/static/styles.css',
+        ],
+    },
     # data files containing optionally loaded demonstration data
-    'demo': [
-        'demo/demo_data.xml',
-    ],
+    'demo': [],
 }
