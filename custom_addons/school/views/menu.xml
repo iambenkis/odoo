@@ -1,0 +1,26 @@
+<odoo>
+    <!-- <record id="school_department_action" model="ir.actions.act_window">
+        <field name="name">Department</field> 
+        <field name="res_model">school_table.department</field>
+        <field name="view_mode">tree,form</field>
+    </record> -->
+
+    <!-- <menuitem 
+        name="Department" 
+        id="menu_school_root"  
+        sequence="0"/>
+
+    <menuitem 
+        name="School highlight" 
+        id="menu_school_master" 
+        parent="menu_school_root"
+        action="school_department_action"
+        sequence="0"/> -->
+
+        <!-- <menuitem 
+            name="Department Details" 
+            id="menu_department_master" 
+            parent="menu_school_master"
+            
+            sequence="0"/> -->
+</odoo>
