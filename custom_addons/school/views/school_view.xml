@@ -13,7 +13,9 @@
                 <field name="name"/>
                 <field name="description"/> 
                 <field name="postcode"/>
-                <field name="date_availability"/>
+                <field name="status"/>
+                <field name="date_availability" attrs="{'invisible': [('status', '=', False)]}"/>
+                <field name="department_id"/>
             </tree>
         </field>
     </record>
@@ -25,6 +27,10 @@
                 <div class="field_body">
                     <h1 class="form_title">My school</h1>
                     <form string="School">
+                        <header>
+                            <button name="update_status" type="object" string="Update Status"/>
+                            <button type="action" name="%(school_table_department_action)d" string="See department"/>
+                        </header> 
                         <sheet>
                             <div class="container">
                                 <div>
@@ -37,6 +43,9 @@
                                     <group>
                                         <field name="school_of_option"/>
                                     </group>
+                                    <group>
+                                        <field name="status" widget="checkbox" string="Is there any place ?"/>
+                                    </group>
                                 </div>
                                 <div class="">
                                     <group>
@@ -48,9 +57,21 @@
                                     <group>
                                         <field name="avg_expected_price"/>
                                     </group>
+                                    <group>
+                                        <field name="department_id" widget="many2one" options="{'no_create': True}" />
+                                    </group>
+                                    <group>
+                                        <field name="annual_fees" />
+                                    </group>
                                 </div>
                             </div>
                         </sheet>
+                        <notebook>
+                            <page string="Description">
+                            </page>
+                            <page string="History">
+                            </page> 
+                        </notebook>
                     </form>
                 </div>
             </field>
@@ -67,20 +88,27 @@
                     <filter string="Electronic Schools" name="filter_electronic" domain="[('school_of_option', '=', 'elo')]"/>
                     <group expand="1" string="Group By">
                         <filter string="Price below 500" name="avg_expected_price"  domain="[('avg_expected_price', '&lt;', 500)]"/>
-                    </group>
+                    </group> 
                 </search>
             </field>
         </record>
 
         <menuitem 
-            id="school_table_menu_action" 
+            id="school_table_menu" 
             name="School Details" 
+            action="school_table_action"
             sequence="0"
         />  
         <menuitem 
-            id="menu_department_master" 
-            name="School Department" 
-            parent="school_table_menu_action" 
-            action="school_table_action"
-            sequence="0"/> 
+            id="school_table_menu_display_department" 
+            name="School Departments" 
+            parent="school_table_menu" 
+            sequence="0"/>
+        
+        <menuitem
+            id="school_table_menu_display_department_action"
+            name="Department"
+            parent="school_table_menu_display_department"
+            action="school_table_department_action"
+            sequence="0"/>
 </odoo>
