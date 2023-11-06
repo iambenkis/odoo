@@ -82,5 +82,5 @@
             name="School Department" 
             parent="school_table_menu_action" 
             action="school_table_action"
-            sequence="0"/>  
+            sequence="0"/> 
 </odoo>
