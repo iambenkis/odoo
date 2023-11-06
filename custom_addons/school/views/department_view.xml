@@ -1,30 +1,53 @@
 <odoo> 
-    <record id="school_department_action" model="ir.actions.act_window">
+    <record id="school_table_department_action" model="ir.actions.act_window">
         <field name="name">Department</field> 
         <field name="res_model">school_table.department</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <record id="department_view_tree" model="ir.ui.view">
-        <field name="name">department.tree</field>
+        <field name="name">school_table.department.tree</field>
         <field name="model">school_table.department</field>
         <field name="arch" type="xml">
             <tree string="Name">
                 <field name="name"/> 
             </tree>
+        </field> 
+    </record>
+
+    <record id="view_department_form" model="ir.ui.view">
+        <field name="name">school_table.department.form</field>
+        <field name="model">school_table.department</field>
+        <field name="arch" type="xml">
+            <form string="Department">
+                <header>
+                    <button type="action" name="%(school_table_action)d" string="See schools"  />
+                </header>
+                <sheet>
+                    <div class="container">
+                        <div class="field_body">
+                            <h1>Department</h1>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
         </field>
     </record>
 
+
     <menuitem 
-        name="Department details" 
-        id="department_menu_action"  
+        id="school_table_department_menu" 
+        name="Department details"  
         sequence="0"/>
 
     <menuitem 
+        id="school_table_department_menu_display_name" 
         name="Department highlight" 
-        id="menu_school_master" 
-        parent="department_menu_action"
-        action="school_department_action"
+        parent="school_table_department_menu"
+        action="school_table_department_action"
         sequence="0"/>
 
     <!-- <menuitem name="Department" id="department_menu_action" action="department_action" parent="menu_school_tabble_master" />  -->
