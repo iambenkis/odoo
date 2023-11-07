@@ -25,12 +25,15 @@
             <field name="model">school_table</field>
             <field name="arch" type="xml" >
                 <div class="field_body">
-                    <h1 class="form_title">My school</h1>
                     <form string="School">
-                        <header>
-                            <button name="update_status" type="object" string="Update Status"/>
-                            <button type="action" name="%(school_table_department_action)d" string="See department"/>
-                        </header> 
+                        <div class="status_bar"> 
+                            <header>
+                                <button name="update_status" type="object" string="Update Status"/>
+                                <button type="action" name="%(school_table_department_action)d" string="See department"/>
+                            </header> 
+                            <field name="school_of_option" widget="statusbar" statusbar_visible="elo,elec,meca"/>
+                        </div>
+                        <h1 class="form_title">My school</h1>
                         <sheet>
                             <div class="container">
                                 <div>

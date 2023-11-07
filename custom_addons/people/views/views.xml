@@ -1,0 +1,69 @@
+<odoo>
+
+    <!-- actions opening views on models -->
+
+    <record id="people_action" model="ir.actions.act_window" >
+      <field name="name">people</field>
+      <field name="res_model">people</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record  id="view_people_form" model="ir.ui.view">
+      <field name="name">people.form</field>
+      <field name="model">people</field>
+      <field name="arch" type="xml">
+          <form string="School">
+            <field name="contact_type" widget="radio" class="o_horizontal"/>
+            <h1 class="form_title">Contact</h1>
+            <sheet> 
+              <group>
+                <field name="name" string="Name"/>
+              </group>
+              <group>
+                <field name="address"/>
+              </group>
+              <group>
+                <field name="country"/>
+              </group>
+              <groupe string="groupe company" attrs="{ 'invisible': [('contact_type', '!=', 'company')]}" > 
+                <groupe string="Groupe tva" attrs="{'invisible': [('country', '!=', 'CO')]}" >
+                    <group>
+                      <field name="nif" string="NIF"/>
+                    </group>
+                    <group>
+                      <field name="rccm" string="RCCM"/>
+                    </group>
+                    <group>
+                      <field name="id_nat" string="Id. Nat." />
+                    </group>
+                </groupe> 
+                <group>
+                    <field name="tva" string="TVA" attrs="{'invisible': [('country', '=', 'CO')]}"  />
+                </group>
+              </groupe>
+            </sheet>
+            <notebook>
+                <page string="Description">
+                </page>
+                <page string="History">
+                </page> 
+            </notebook>
+        </form>
+      </field>
+    </record>
+
+        <!-- <tree>
+          <field name="name"/>
+          <field name="address"/>
+          <field name="country"/> 
+          <field name="nif" string="NIF"/>
+          <field name="rccm" string="RCCM"/>
+          <field name="id_nat" string="Id. Nat."/>
+        </tree> -->
+     
+    <menuitem 
+        id="people_menu_action" 
+        name="People"
+        action="people_action"
+    />  
+</odoo>
