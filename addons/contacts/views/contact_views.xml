@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="action_contacts" model="ir.actions.act_window">
-        <field name="name">Contacts</field>
+        <field name="name">Contacts Custo</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">kanban,tree,form,activity</field>
@@ -33,6 +33,18 @@
         <field name="view_id" ref="base.view_partner_form"/>
         <field name="act_window_id" ref="action_contacts"/>
     </record>
+
+
+    <record id="view_res_partner_form" model="ir.ui.view">
+        <field name="name">Contacts ben</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Contact">
+                <h1 class="form_title">Contact Benjamin</h1>
+            </form>
+        </field>
+    </record>
+
 
 
     <menuitem name="Contacts"
